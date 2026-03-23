@@ -15,33 +15,36 @@
           {
             "group": "Get started",
             "pages": [
-              "quickstart"
+              "../get-started/quickstart"
             ]
           },
           {
             "group": "Configure the Agent",
             "pages": [
-              "customize",
-              "knowledge-sources",
-              "tools"
+              "../configure/customize",
+              "../configure/knowledge",
+              "../configure/tools"
             ]
           },
           {
             "group": "Operate Daily",
             "pages": [
-              "inbox"
+              "../operate/inbox"
             ]
           },
           {
             "group": "Widget Integration",
             "pages": [
-              "widget-playground"
+              "../integration/widget-playground"
             ]
           }
         ]
       },
       {
-        "tab": "Changelog"
+        "tab": "Changelog",
+        "pages": [
+          "../changelog/coming-soon"
+        ]
       }
     ]
   },
