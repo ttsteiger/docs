@@ -8,42 +8,89 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Help Center",
-        "groups": [
+        "language": "de",
+        "tabs": [
           {
-            "group": "Get started",
-            "pages": [
-              "../get-started/quickstart"
+            "tab": "Help Center",
+            "groups": [
+              {
+                "group": "Get started",
+                "pages": [
+                  "../get-started/quickstart"
+                ]
+              },
+              {
+                "group": "Configure the Agent",
+                "pages": [
+                  "../configure/customize",
+                  "../configure/knowledge",
+                  "../configure/tools"
+                ]
+              },
+              {
+                "group": "Operate Daily",
+                "pages": [
+                  "../operate/inbox"
+                ]
+              },
+              {
+                "group": "Widget Integration",
+                "pages": [
+                  "../integration/widget-playground"
+                ]
+              }
             ]
           },
           {
-            "group": "Configure the Agent",
+            "tab": "Changelog",
             "pages": [
-              "../configure/customize",
-              "../configure/knowledge",
-              "../configure/tools"
-            ]
-          },
-          {
-            "group": "Operate Daily",
-            "pages": [
-              "../operate/inbox"
-            ]
-          },
-          {
-            "group": "Widget Integration",
-            "pages": [
-              "../integration/widget-playground"
+              "../changelog/coming-soon"
             ]
           }
         ]
       },
       {
-        "tab": "Changelog",
-        "pages": [
-          "../changelog/coming-soon"
+        "language": "en",
+        "tabs": [
+          {
+            "tab": "Help Center",
+            "groups": [
+              {
+                "group": "Get started",
+                "pages": [
+                  "../en/get-started/quickstart"
+                ]
+              },
+              {
+                "group": "Configure the Agent",
+                "pages": [
+                  "../en/configure/customize",
+                  "../en/configure/knowledge",
+                  "../en/configure/tools"
+                ]
+              },
+              {
+                "group": "Operate Daily",
+                "pages": [
+                  "../en/operate/inbox"
+                ]
+              },
+              {
+                "group": "Widget Integration",
+                "pages": [
+                  "../en/integration/widget-playground"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Changelog",
+            "pages": [
+              "../en/changelog/coming-soon"
+            ]
+          }
         ]
       }
     ]
@@ -61,18 +108,6 @@
       "label": "App",
       "href": "https://klaroai.ch/app/"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {

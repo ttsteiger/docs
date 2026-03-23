@@ -1,0 +1,151 @@
+---
+title: "Knowledge Sources"
+---
+
+Knowledge sources are the content your agent draws answers from. The more relevant and well-structured your sources are, the better your agent performs. You'll find them under **Configure → Knowledge Sources** in the sidebar.
+
+> **Access:** Adding, editing, and deleting sources requires Editor or Owner access. Viewers can browse the list but can't make changes.
+
+{/*  📸 SCREENSHOT: The Knowledge Sources page with a mix of source types listed (at least one website, one PDF, one text), each showing a different status badge. Shows the full page layout including the "Add source" button and usage counter in the top area.  */}
+
+---
+
+## Source types
+
+Klaro supports three ways to feed content to your agent:
+
+| Type | Best for |
+| --- | --- |
+| **Website** | Product pages, help centers, FAQs, blog posts — anything publicly accessible by URL |
+| **PDF** | Documentation, manuals, whitepapers, anything that lives in a file |
+| **Text** | Short reference content, internal FAQs, policies — anything you want to paste in directly |
+
+Each source type is indexed separately but queried together when a visitor asks a question.
+
+---
+
+## Status lifecycle
+
+After you add a source, Klaro processes it in the background. You can watch the status update in real time — no need to refresh.
+
+### Website
+
+```text
+pending → crawling → indexing → completed → failed
+```
+
+- **Pending:** source created, waiting to be picked up
+- **Crawling:** Klaro is fetching the page content from the URL
+- **Indexing:** content has been retrieved and is being split into chunks and embedded
+- **Completed:** source is live and searchable
+- **Failed:** something went wrong at one of the steps (bad URL, unreachable page, etc.)
+
+### PDF
+
+```text
+pending → indexing → completed → failed
+```
+
+PDFs skip the crawling step — once uploaded, they go straight to indexing.
+
+### Text
+
+```text
+indexing → completed → failed
+```
+
+Text sources start indexing immediately on creation.
+
+{/*  📸 SCREENSHOT: Close-up of the status badges in the sources list — show all four meaningful states (pending/crawling, indexing, completed, failed) across different rows so the color/label treatment is clear.  */}
+
+> **If a source shows "failed":** the most common reasons are a URL that requires login, a PDF that's too large or too long, or a text source that exceeded the word limit. Fix the issue and re-add the source (or re-scrape for websites).
+
+---
+
+## Adding knowledge sources
+
+### Website
+
+You have three ways to add website content:
+
+**Single** — paste one URL and submit. Good for a specific page you know you want indexed.
+
+**Multiple** — paste up to **10 URLs**, one per line. Use this when you have a list of pages ready to go.
+
+**Crawl** — enter a base URL and Klaro maps the site, showing you up to 30 discovered pages. Pick the ones you want (up to 10 at a time) and add them in one go. This is the most efficient way to index an existing help center or documentation site.
+
+{/*  📸 SCREENSHOT: The "Add website" dialog open on the Crawl tab, showing a mapped site with several checkboxes, some checked. Ideally show the "Select first 10" button and the submit button enabled.  */}
+
+URLs are normalized before saving — you can paste with or without `https://` and trailing slashes, Klaro handles it.
+
+### PDF
+
+Click **Add source → PDF**, then drag and drop your file or click to browse. One file per upload.
+
+Constraints:
+
+- Format: PDF only
+- Max size: **10 MB**
+- Max pages: **50 pages**
+
+The title defaults to the filename (without `.pdf`). You can't rename it after upload — if you need a different title, delete and re-upload.
+
+{/*  📸 SCREENSHOT: The PDF upload dialog with a file already dropped in (pre-submission), showing the filename, file size, and the upload/submit button in an active state.  */}
+
+### Text
+
+Click **Add source → Text**, enter a title and paste your content. The title must be unique per agent — adding two text sources with the same title will fail.
+
+Constraints:
+
+- Max: **10,000 words**
+- A live word counter shows your current count as you type; the submit button disables when you go over
+
+Text sources are useful for internal knowledge that isn't published anywhere — things like escalation procedures, pricing tiers, or product positioning notes that you want the agent to know but don't live on your website.
+
+{/*  📸 SCREENSHOT: The "Add text source" dialog with a title and a body of text filled in, showing the live word count near the limit (e.g. "8,432 / 10,000 words").  */}
+
+---
+
+## Re-scraping websites
+
+Websites can be manually re-scraped to pick up updated content. Find the source in the list and click **Re-scrape**.
+
+A few things to know:
+
+- Re-scraping counts against your **monthly website scraping limit** (same as adding a new website)
+- You can't re-scrape while a source is currently being crawled or indexed — the button is disabled during processing
+- When a re-scrape completes, the old content is fully replaced — not merged
+
+PDFs and text sources don't have a re-index option. If the content changes, delete the source and re-add it.
+
+---
+
+## Deleting sources
+
+You can delete any source from the list. Deletion is permanent and immediate — the source is removed from the index and your agent will no longer use it for answers. Deleted website sources do **not** count against your monthly scraping limit.
+
+---
+
+## Plan limits
+
+Two limits apply to knowledge sources, and both are scoped to your workspace:
+
+**Total knowledge sources** — the combined count of all source types across all your agents. Once you hit the limit, you'll need to delete existing sources or upgrade your plan to add more.
+
+**Website scrapes per month** — counts both new websites added and re-scrapes of existing ones. Resets at the start of each billing month.
+
+| Plan | Max knowledge sources | Max website scrapes/month |
+| --- | --- | --- |
+| Free | 5 | 5 |
+| Starter | 25 | 25 |
+| Builder | 100 | 150 |
+| Pro | 400 | 500 |
+
+You can see your current usage directly on the Knowledge Sources page. If you hit a limit mid-workflow, you'll see an inline error message with your current counts — head to **Settings → Billing** to review your plan.
+
+{/*  📸 SCREENSHOT: The usage counter on the Knowledge Sources page showing something like "18 / 25 sources" and "12 / 25 websites scraped this month" — close enough to the limit that it feels meaningful.  */}
+
+---
+
+**Next up:** [Configure → Tools](./customize) — enable human escalation and lead capture.
