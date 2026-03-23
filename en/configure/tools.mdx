@@ -2,21 +2,21 @@
 title: "Tools"
 ---
 
-Tools extend what your agent can do beyond answering questions. Right now there are two: **Human Escalation** and **Lead Capture**. Each is a simple on/off toggle — no complex setup required.
+Tools extend what your agent can do beyond answering questions. Right now there are two: **Human Escalation** and **Lead Capture**. Each is a simple on/off toggle - no complex setup required.
 
-You'll find them under **Configure → Tools** in the sidebar.
+You'll find them under **Tools** in the sidebar.
 
-> **Plan requirement:** Tools are available on the **Builder and Pro** plans. On Free and Starter, the page is visible but the toggles are locked. Head to **Settings → Billing** to upgrade.
+> **Plan requirement:** Tools are available on the **Builder & Pro** plans. On Free and Starter, the page is visible but the toggles are locked. Head to **Settings → Billing** to upgrade.
 
 > **Access:** You need Editor or Owner access to enable or disable tools. Viewers can't open this page.
 
-{/*  📸 SCREENSHOT: The Tools page showing both tool cards — one enabled (Human Escalation, switch on) and one disabled (Lead Capture, switch off). Show the floating save bar in an unsaved state. If possible, also capture the gated/locked state in a second screenshot for reference.  */}
+{/*  📸 SCREENSHOT: The Tools page showing both tool cards - one enabled (Human Escalation, switch on) and one disabled (Lead Capture, switch off). Show the floating save bar in an unsaved state. If possible, also capture the gated/locked state in a second screenshot for reference.  */}
 
 ---
 
 ## Human Escalation
 
-When this tool is enabled, your agent can hand off a conversation to a human team member — either on its own judgment or immediately when a visitor asks to speak to a real person.
+When this tool is enabled, your agent can hand off a conversation to a human team member - either on its own judgment or immediately when a visitor asks to speak to a real person.
 
 ### What changes in the chat
 
@@ -26,35 +26,35 @@ The agent gets an explicit escalation rule added to its system prompt. In practi
 - Escalate immediately if the visitor says something like "I want to talk to a human" or "Can I speak to someone?"
 - Send the visitor a short farewell message explaining that a team member will follow up
 
-Once escalated, the AI stops generating responses. The visitor can still type and send messages — they're held for a human to reply to.
+Once escalated, the AI stops generating responses. The visitor can still type and send messages - they're held for a human to reply to.
 
-{/*  📸 SCREENSHOT: The chat widget mid-escalation — showing the "Connecting to human agent…" tool call display, followed by the AI's farewell message. Then the visitor's next message sitting unanswered, waiting for a human reply.  */}
+{/*  📸 SCREENSHOT: The chat widget mid-escalation - showing the "Connecting to human agent…" tool call display, followed by the AI's farewell message. Then the visitor's next message sitting unanswered, waiting for a human reply.  */}
 
-> **What it won't do:** The agent won't escalate for greetings, thank-yous, or casual small talk. It also won't escalate when a visitor just wants to leave their contact info for later — that's what Lead Capture is for.
+> **What it won't do:** The agent won't escalate for greetings, thank-yous, or casual small talk. It also won't escalate when a visitor just wants to leave their contact info for later - that's what **Lead Capture** is for.
 
 ### What changes in the inbox
 
 Escalated conversations are flagged with an **"Escalated"** badge in the conversation list and detail header. In an escalated conversation:
 
 - A collapsible **Escalation reason** section shows the brief reason the AI passed off (e.g. "User asked about a refund that requires account access").
-- The reply composer switches to **"Reply as human agent"** mode — anything you type is sent as a human message, not an AI response.
+- The reply composer switches to **"Reply as human agent"** mode - anything you type is sent as a human message, not an AI response.
 - The visitor sees your replies in real time.
 
 You can reply in the inbox to any open escalated conversation. Closing the conversation ends the human takeover session.
 
-{/*  📸 SCREENSHOT: The inbox conversation detail view for an escalated conversation — showing the "Escalated" badge in the header, the collapsed "Escalation reason" accordion, and the reply composer with the "Reply as human agent…" placeholder.  */}
+{/*  📸 SCREENSHOT: The inbox conversation detail view for an escalated conversation - showing the "Escalated" badge in the header, the collapsed "Escalation reason" accordion, and the reply composer with the "Reply as human agent…" placeholder.  */}
 
 ### Email notifications
 
-When a conversation is escalated (by the AI or by a team member sending the first human reply), all **workspace owners** receive an email notification. The email includes a direct link to the conversation in the inbox.
+When a conversation is escalated (by the AI), all **workspace owners** receive an email notification. The email includes a direct link to the conversation in the inbox.
 
-Notifications are sent once per escalation event — no repeated emails if more messages come in.
+Notifications are sent once per escalation event - no repeated emails if more messages come in.
 
 ---
 
 ## Lead Capture
 
-When this tool is enabled, your agent can show visitors a small contact form — name and email — so they can leave their details for follow-up without needing a live conversation.
+When this tool is enabled, your agent can show visitors a small contact form - name and email - so they can leave their details for follow-up without needing a live conversation.
 
 ### What changes in the chat
 
@@ -63,9 +63,9 @@ The agent gets lead capture rules added to its system prompt. It will offer the 
 - A visitor asks about pricing, a demo, or anything that warrants a follow-up call
 - A visitor wants to be contacted later but isn't asking for a live human chat right now
 
-The contact form appears inline in the conversation — the visitor fills in their name and email and submits. The agent continues the conversation naturally while the form is visible; it won't push the visitor to fill it in again once it's been shown.
+The contact form appears inline in the conversation - the visitor fills in their name and email and submits. The agent continues the conversation naturally while the form is visible; it won't push the visitor to fill it in again once it's been shown.
 
-{/*  📸 SCREENSHOT: The chat widget showing the inline lead capture form mid-conversation — name and email fields, submit button, and the agent's message above it inviting the visitor to share their details. Then a second state showing the "Thank you! We'll be in touch." confirmation.  */}
+{/*  📸 SCREENSHOT: The chat widget showing the inline lead capture form mid-conversation - name and email fields, submit button, and the agent's message above it inviting the visitor to share their details. Then a second state showing the "Thank you! We'll be in touch." confirmation.  */}
 
 ### What appears in the inbox
 
@@ -73,19 +73,19 @@ Once a visitor submits their contact details:
 
 - Their **name and email** appear in the conversation header
 - A collapsible **Lead capture context** section shows the brief context the AI noted when it triggered the form (e.g. "visitor asked about pricing")
-- The lead is stored and deduplicated by email — if the same visitor submits details in multiple conversations, they're linked to the same lead record
+- The lead is stored and deduplicated by email - if the same visitor submits details in multiple conversations, they're linked to the same lead record
 
-{/*  📸 SCREENSHOT: The inbox conversation detail for a lead conversation — showing the visitor's name and email in the header, and the "Lead capture context" accordion expanded with the AI's context note.  */}
+{/*  📸 SCREENSHOT: The inbox conversation detail for a lead conversation - showing the visitor's name and email in the header, and the "Lead capture context" accordion expanded with the AI's context note.  */}
 
 ### Email notifications
 
-When a visitor submits the lead form, all **workspace owners** receive an email with the visitor's name, email address, and a direct link to the conversation. Duplicate notifications are suppressed — if the same lead appears in multiple conversations, you'll only get one notification per new submission.
+When a visitor submits the lead form, all **workspace owners** receive an email with the visitor's name, email address, and a direct link to the conversation.
 
 ---
 
 ## How the two tools work together
 
-Human Escalation and Lead Capture serve different intents — and the agent knows the difference:
+Human Escalation and Lead Capture serve different intents - and the agent knows the difference:
 
 | Visitor intent | Tool used |
 | --- | --- |
@@ -94,8 +94,8 @@ Human Escalation and Lead Capture serve different intents — and the agent know
 | "I need a demo scheduled" | Lead Capture |
 | "I can't figure this out, I need a human" | Human Escalation |
 
-You can enable both tools at the same time — the agent will use whichever is appropriate based on what the visitor says.
+You can enable both tools at the same time - the agent will use whichever is appropriate based on what the visitor says.
 
 ---
 
-**Next up:** [Operate Daily → Inbox](../en/operate/inbox) — manage conversations, reply as a human, and work with leads.
+**Next up:** [Operate Daily → Inbox](../en/operate/inbox) - manage conversations, reply as a human, and work with leads.

@@ -1,14 +1,14 @@
 ---
-title: 'Widget & Playground'
+title: "Widget & Playground"
 ---
 
 This page covers how to embed your agent on your website, how to test it before going live, and how to share a standalone chat link.
 
---- 
+---
 
 ## Getting your embed code
 
-Your embed code lives on the **Dashboard**. Click the **Share Agent** button (top right) — it opens a dialog with two tabs: **Embed Widget** and **Public Link**.
+Your embed code lives on the **Dashboard**. Click the **Share Agent** button (top right) - it opens a dialog with two tabs: **Embed Widget** and **Public Link**.
 
 > **Owner only:** The Share Agent button is only visible to workspace owners.
 
@@ -34,7 +34,7 @@ The script loads asynchronously and injects a floating chat button into your pag
 ### Optional attributes
 
 | Attribute | Values | Default | What it does |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `data-position` | `bottom-right`, `bottom-left`, `top-right`, `top-left` | `bottom-right` | Sets where the toggle button appears on screen |
 | `data-lang` | `en`, `de` | Auto-detect | Fixes the widget language. If omitted, Klaro uses the visitor's browser language and falls back to English |
 
@@ -57,12 +57,12 @@ window.KlaroAIWidget.destroy() // remove the widget from the page
 
 If your site uses a Content Security Policy, you'll need to add Klaro's domain to two directives so the script can load and the chat iframe can render:
 
-```
+```text
 script-src  https://www.klaroai.ch;
 frame-src  https://www.klaroai.ch;
 ```
 
-Add these to your existing CSP — don't replace what's already there. The Share dialog shows the exact values to copy.
+Add these to your existing CSP - don't replace what's already there. The Share dialog shows the exact values to copy.
 
 ---
 
@@ -70,7 +70,7 @@ Add these to your existing CSP — don't replace what's already there. The Share
 
 The **Playground** is a built-in test environment inside the app. Find it in the sidebar under **Playground**.
 
-It runs the same chat interface your visitors see, but inside your Klaro dashboard — no embed required. Use it to:
+It runs the same chat interface your visitors see, but inside your Klaro dashboard - no embed required. Use it to:
 
 - Test your agent's responses after adding new knowledge sources
 - Check how the system prompt changes behavior
@@ -80,7 +80,7 @@ It runs the same chat interface your visitors see, but inside your Klaro dashboa
 
 ### Playground conversations in the inbox
 
-Every conversation you have in the Playground shows up in your Inbox — just like real visitor conversations. They're marked with a small flask icon (🧪) in the conversation list so you can tell your own tests apart from real traffic.
+Every conversation you have in the Playground shows up in your Inbox - just like real visitor conversations. They're marked with a small flask icon (🧪) in the conversation list so you can tell your own tests apart from real traffic.
 
 {/* 📸 SCREENSHOT: The inbox conversation list showing a mix of regular and playground conversations, with the flask icon clearly visible next to the playground ones. */}
 
@@ -90,9 +90,9 @@ You can close or delete playground conversations from the inbox the same way as 
 
 ## Public chat link
 
-The **Public Link** tab in the Share dialog gives you a standalone URL that opens your agent in a full-page chat — no embed needed. It looks like:
+The **Public Link** tab in the Share dialog gives you a standalone URL that opens your agent in a full-page chat - no embed needed. It looks like:
 
-```
+```text
 https://www.klaroai.ch/public/[agent-id]
 ```
 
@@ -102,11 +102,11 @@ Anyone with this link can chat with your agent. It's useful for:
 - Internal testing without embedding on a page
 - Running a quick demo with a prospect
 
-The public page uses the same language fallback logic as the widget — visitor's browser language, defaulting to English if the language isn't supported.
+The public page uses the same language fallback logic as the widget - visitor's browser language, defaulting to English if the language isn't supported.
 
 {/* 📸 SCREENSHOT: The Share Agent dialog on the "Public Link" tab, showing the URL, the copy button, and the hint text ("Anyone with this link can chat with your AI assistant"). */}
 
-> The public chat page and the embedded widget are separate surfaces but run the same agent. Conversations from both appear in your inbox — public link conversations show as regular widget conversations (no special badge).
+> The public chat page and the embedded widget are separate surfaces but run the same agent. Conversations from both appear in your inbox - public link conversations show as regular widget conversations (no special badge).
 
 ---
 

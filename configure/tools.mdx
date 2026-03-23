@@ -1,0 +1,101 @@
+---
+title: "Tools"
+---
+
+Tools erweitern, was dein Agent über das Beantworten von Fragen hinaus kann. Aktuell gibt es zwei: **Eskalation an Mitarbeiter** und **Lead-Erfassung**. Beide sind ein simpler Ein/Aus-Toggle - kein komplexes Setup nötig.
+
+Du findest sie unter **Tools** in der Sidebar.
+
+> **Plan-Voraussetzung:** Tools sind auf den **Builder- und Pro-Plänen** verfügbar. Auf Free und Starter ist die Seite sichtbar, aber die Toggles sind gesperrt. Geh zu **Einstellungen → Abrechnung**, um upzugraden.
+
+> **Zugriff:** Du brauchst Editor- oder Owner-Rechte, um Tools zu aktivieren oder deaktivieren. Viewer können diese Seite nicht öffnen.
+
+{/*  📸 SCREENSHOT: The Tools page showing both tool cards - one enabled (Human Escalation, switch on) and one disabled (Lead Capture, switch off). Show the floating save bar in an unsaved state. If possible, also capture the gated/locked state in a second screenshot for reference.  */}
+
+---
+
+## Eskalation an Mitarbeiter
+
+Wenn dieses Tool aktiviert ist, kann dein Agent eine Konversation an ein menschliches Teammitglied übergeben - entweder nach eigenem Ermessen oder sofort, wenn ein Besucher nach einer echten Person fragt.
+
+### Was sich im Chat ändert
+
+Der Agent erhält eine explizite Eskalationsregel in seinem System Prompt. In der Praxis wird er:
+
+- Automatisch eskalieren, wenn er in seiner Wissensbasis keine relevante Antwort findet und das Thema echte Hilfe braucht
+- Sofort eskalieren, wenn der Besucher etwas sagt wie „Ich möchte mit einem Menschen sprechen" oder „Kann ich jemanden kontaktieren?"
+- Dem Besucher eine kurze Abschiedsnachricht senden mit dem Hinweis, dass sich ein Teammitglied meldet
+
+Nach der Eskalation generiert die KI keine Antworten mehr. Der Besucher kann weiterhin tippen und Nachrichten senden - sie werden für die menschliche Antwort aufbewahrt.
+
+{/*  📸 SCREENSHOT: The chat widget mid-escalation - showing the "Connecting to human agent…" tool call display, followed by the AI's farewell message. Then the visitor's next message sitting unanswered, waiting for a human reply.  */}
+
+> **Was er nicht tut:** Der Agent eskaliert nicht bei Begrüssungen, Dankeschöns oder lockerem Smalltalk. Er eskaliert auch nicht, wenn ein Besucher bloss seine Kontaktdaten hinterlassen will - dafür gibt es **Lead-Erfassung**.
+
+### Was sich in der Inbox ändert
+
+Eskalierte Konversationen werden in der Konversationsliste und im Detail-Header mit einem **Eskaliert"**-Badge markiert. In einer eskalierten Konversation:
+
+- Ein aufklappbarer Abschnitt **Grund für Eskalation** zeigt den kurzen Grund, warum die KI übergeben hat (z.B. „Ein Nutzer hat nach einer Rückerstattung gefragt, für die Zugriff auf das Konto erforderlich ist").
+- Der Antwort-Composer wechselt in den Modus **„Als Nutzer antworten"** - alles, was du tippst, wird als menschliche Nachricht gesendet, nicht als KI-Antwort.
+- Der Besucher sieht deine Antworten in Echtzeit.
+
+Du kannst in der Inbox auf jede offene eskalierte Konversation antworten. Wenn du die Konversation schliesst, endet die menschliche Übernahme.
+
+{/*  📸 SCREENSHOT: The inbox conversation detail view for an escalated conversation - showing the "Escalated" badge in the header, the collapsed "Escalation reason" accordion, and the reply composer with the "Reply as human agent…" placeholder.  */}
+
+### E-Mail-Benachrichtigungen
+
+Wenn eine Konversation eskaliert wird (durch die KI), erhalten alle **Workspace Owner** eine E-Mail-Benachrichtigung. Die E-Mail enthält einen direkten Link zur Konversation in der Inbox.
+
+Benachrichtigungen werden einmal pro Eskalation gesendet - keine wiederholten E-Mails, wenn weitere Nachrichten eingehen.
+
+---
+
+## Lead-Erfassung
+
+Wenn dieses Tool aktiviert ist, kann dein Agent Besuchern ein kleines Kontaktformular anzeigen - Name und E-Mail - damit sie ihre Daten für eine spätere Kontaktaufnahme hinterlassen können, ohne ein Live-Gespräch zu brauchen.
+
+### Was sich im Chat ändert
+
+Der Agent erhält Lead-Erfassungs-Regeln in seinem System Prompt. Er zeigt das Formular an, wenn:
+
+- Ein Besucher nach Preisen, einer Demo oder etwas fragt, das einen Follow-up-Call rechtfertigt
+- Ein Besucher später kontaktiert werden möchte, aber gerade keinen Live-Chat mit einem Menschen sucht
+
+Das Kontaktformular erscheint inline in der Konversation - der Besucher füllt Name und E-Mail aus und sendet ab. Der Agent führt das Gespräch ganz normal weiter, solange das Formular sichtbar ist; er drängt nicht nochmal zum Ausfüllen, sobald es einmal gezeigt wurde.
+
+{/*  📸 SCREENSHOT: The chat widget showing the inline lead capture form mid-conversation - name and email fields, submit button, and the agent's message above it inviting the visitor to share their details. Then a second state showing the "Thank you! We'll be in touch." confirmation.  */}
+
+### Was in der Inbox erscheint
+
+Sobald ein Besucher seine Kontaktdaten absendet:
+
+- **Name und E-Mail** erscheinen im Konversations-Header
+- Ein aufklappbarer Abschnitt **Lead-Erfassungskontext** zeigt den kurzen Kontext, den die KI beim Auslösen des Formulars notiert hat (z. B. „Ein Besucher erkundigte sich nach den Preisen")
+- Der Lead wird gespeichert und nach E-Mail-Adresse dedupliziert - wenn derselbe Besucher in mehreren Konversationen Daten hinterlässt, werden sie mit demselben Lead-Datensatz verknüpft
+
+{/*  📸 SCREENSHOT: The inbox conversation detail for a lead conversation - showing the visitor's name and email in the header, and the "Lead capture context" accordion expanded with the AI's context note.  */}
+
+### E-Mail-Benachrichtigungen
+
+Wenn ein Besucher das Lead-Formular absendet, erhalten alle **Workspace Owner** eine E-Mail mit Name, E-Mail-Adresse des Besuchers und einem direkten Link zur Konversation.
+
+---
+
+## Wie die beiden Tools zusammenspielen
+
+Eskalation an Mitarbeiter und Lead-Erfassung bedienen unterschiedliche Absichten - und der Agent kennt den Unterschied:
+
+| Absicht des Besuchers | Verwendetes Tool |
+| --- | --- |
+| „Ich brauche jetzt Hilfe, kann ich mit jemandem sprechen?" | Eskalation an Mitarbeiter |
+| „Kann sich jemand bei mir wegen Preisen melden?" | Lead-Erfassung |
+| „Ich möchte eine Demo vereinbaren" | Lead-Erfassung |
+| „Ich komme nicht weiter, ich brauche einen Menschen" | Eskalation an Mitarbeiter |
+
+Du kannst beide Tools gleichzeitig aktivieren - der Agent wählt das passende, basierend auf dem, was der Besucher sagt.
+
+---
+
+**Als Nächstes:** [Täglicher Betrieb → Inbox](../operate/inbox) - Konversationen verwalten, als Mensch antworten und mit Leads arbeiten.

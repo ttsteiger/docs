@@ -1,0 +1,114 @@
+---
+title: "Posteingang"
+---
+
+Im Posteingang landen alle Konversationen mit deinen Besuchern. Du kannst Threads lesen, als Mensch antworten, Konversationen schliessen und erfasste Leads einsehen - alles an einem Ort. Du findest sie unter **Posteingang** in der Sidebar.
+
+Das Ungelesen-Badge in der Sidebar aktualisiert sich in Echtzeit - kein Refresh nötig.
+
+{/* 📸 SCREENSHOT: Full inbox layout - the conversation list on the left (mix of open/unread/escalated conversations), the selected thread on the right showing messages, the header actions, and the reply composer at the bottom. */}
+
+---
+
+## Konversations-Status
+
+Jede Konversation ist entweder **Offen** oder **Geschlossen**.
+
+- **Offen** - die Konversation ist aktiv. Der Antwort-Composer ist verfügbar, und der Thread kann neue Nachrichten empfangen.
+- **Geschlossen** - die Konversation ist archiviert. Der Thread ist schreibgeschützt; es gibt kein Antwortfeld. Du kannst sie jederzeit wieder öffnen.
+
+Wechsle mit den **Offen**- und **Geschlossen**-Tabs oben in der Konversationsliste zwischen den beiden. Neue Konversationen starten immer als Offen.
+
+---
+
+## Ungelesen-Tracking
+
+Ein blauer Punkt neben einer Konversation bedeutet, dass etwas Neues deine Aufmerksamkeit braucht. Konversationen werden als ungelesen markiert, wenn:
+
+- Die KI die Konversation an einen Menschen eskaliert
+- Ein Besucher eine Nachricht in einem bereits eskalierten Thread sendet (einem, den ein Mensch bearbeitet)
+- Ein Besucher seine Kontaktdaten über das Lead-Erfassungs-Formular absendet
+
+Ein Klick auf die Konversation markiert sie als gelesen.
+
+---
+
+## Navigieren und suchen
+
+Die Konversationsliste ist nach neuester Aktivität sortiert - die letzte Nachricht oder das letzte Event steht zuoberst.
+
+**Suche** im aktuellen Tab, indem du in die Suchleiste tippst. Die Abfrage muss mindestens 3 Zeichen lang sein. Die Suche durchsucht den Nachrichteninhalt im aktiven Tab (Offen oder Geschlossen).
+
+Du kannst direkt auf eine Konversation verlinken - die URL aktualisiert sich auf `?conversationId=...`, wenn du einen Thread auswählst. So kannst du eine bestimmte Konversation bookmarken oder teilen.
+
+{/* 📸 SCREENSHOT: The conversation list with the search bar active, showing a query typed in and a filtered list of matching results. The "Open" tab should be selected. */}
+
+---
+
+## Human Takeover
+
+Wenn eine Konversation einen menschlichen Touch braucht, kannst du direkt aus der Inbox einspringen und antworten. Das funktioniert unabhängig davon, ob das **HEskalation an Mitarbeiter**-Tool auf dem Agent aktiviert ist.
+
+**So funktioniert's:**
+
+1. Öffne eine eskalierte Konversation (oder eine beliebige offene Konversation, die du übernehmen willst)
+2. Tippe deine Antwort im **„Als Nutzer antworten"**-Composer unten ein
+3. Klick auf **Antwort senden**
+
+Deine erste menschliche Antwort versetzt die Konversation automatisch in den Human-Handling-Modus - die KI generiert keine Antworten mehr, und der Besucher sieht deine Nachrichten in Echtzeit. Ein **Eskaliert"**-Badge erscheint im Konversations-Header.
+
+{/* 📸 SCREENSHOT: An open conversation in human-handling mode - the "Escalated" badge in the header, a human message visible in the thread (visually distinct from AI messages), and the reply composer with "Reply as human agent…" placeholder. */}
+
+Sobald eine Konversation im Human-Handling-Modus ist, bleibt sie dort, bis sie gelöscht wird oder der Besucher eine neue Konversation startet. Schliessen und Wiederöffnen setzt den Eskalations-Status nicht zurück.
+
+> **Hinweis für Viewer:** Viewer können Konversationen lesen, aber keine Antworten senden, Threads schliessen oder Konversationen löschen.
+
+---
+
+## Konversations-Aktionen
+
+### Schliessen und wiederöffnen
+
+Klick auf **Schliessen** im Konversations-Header, um einen Thread zu archivieren. Die Konversation wandert in den Closed-Tab und der Antwort-Composer verschwindet. Klick auf **Wieder öffnen**, um sie wieder auf Open zu setzen.
+
+Du brauchst Editor- oder Owner-Rechte zum Schliessen und Wiederöffnen von Konversationen.
+
+### Löschen
+
+Öffne das Menü (⋯) im Konversations-Header und wähle **Löschen**. Ein Bestätigungsdialog zeigt den Konversationstitel und die Nachrichtenanzahl, bevor du bestätigst - Löschen ist endgültig und kann nicht rückgängig gemacht werden.
+
+{/* 📸 SCREENSHOT: The delete confirmation dialog open, showing the conversation title, message count, and the "Delete" / "Cancel" buttons. */}
+
+### Als Mensch antworten
+
+Tippe im Antwort-Composer und klick auf **Antwort senden**. Der Composer ist nur bei offenen Konversationen verfügbar.
+
+Nachrichten haben eine maximale Länge von 5'000 Zeichen.
+
+---
+
+## Leads im Posteingang
+
+Wenn ein Besucher seine Kontaktdaten über das Lead-Erfassungs-Formular absendet, erscheinen Name und E-Mail im Konversations-Header - anstelle des generischen Labels „Anonymer Besucher".
+
+Was du siehst:
+
+- **Name und E-Mail** im Konversations-Header (Name als Titel, E-Mail als Untertitel)
+- **Initialen-Avatar**, generiert aus dem Namen oder der E-Mail-Adresse des Leads
+- **Lead capture context** - ein aufklappbarer Abschnitt im Thread mit dem kurzen Kontext, den die KI beim Anbieten des Formulars notiert hat (z. B. „Ein Besucher hat nach einer Demo gefragt")
+
+{/* 📸 SCREENSHOT: A conversation detail view where a lead has been captured - showing the lead's name in the header, their email subtitle, the initials avatar, and the "Lead capture context" accordion expanded in the thread. */}
+
+Falls noch keine Lead-Daten vorhanden sind, wird die Konversation als **„Anonymer Besucher"** angezeigt.
+
+---
+
+## Playground- vs. Widget-Konversationen
+
+Ein kleines Kolben-Icon (🧪) neben einer Konversation bedeutet, dass sie aus dem **Playground** stammt - dem integrierten Test-Chat, mit dem du deinen Agent ausprobierst, bevor er live geht. Konversationen ohne das Icon kommen von deinem eingebetteten Widget auf deiner Seite.
+
+Beide Typen landen in derselben Inbox und verhalten sich identisch. Das Icon ist einfach ein praktischer visueller Hinweis, damit du deine eigenen Test-Konversationen von echten Besucher-Konversationen unterscheiden kannst.
+
+---
+
+**Als Nächstes:** [Integration → Widget & Playground](../integration/widget-playground) - Embed-Code holen, Agent live testen und einen öffentlichen Chat-Link teilen.

@@ -1,0 +1,125 @@
+---
+title: "Personalisieren"
+---
+
+Auf der Personalisieren-Seite steuerst du, wie dein Agent aussieht, denkt und spricht. Du findest sie unter **Personalisieren** in der Sidebar. Sie hat drei Tabs: **Design**, **KI** und **Inhalt**.
+
+Änderungen werden nicht automatisch gespeichert - sobald du etwas anpasst, erscheint eine schwebende Speicherleiste. Klick auf **Änderungen speichern** zum Übernehmen oder auf **Zurücksetzen** zum Verwerfen.
+
+> **Zugriff:** Du brauchst Editor- oder Owner-Rechte, um einen Agent anzupassen. Viewer können diese Seite nicht öffnen.
+
+{/* 📸 SCREENSHOT: Full Customize page on the Style tab, showing the live preview panel on the right and the form fields on the left. Capture the floating save bar at the bottom in an "unsaved changes" state so readers can see what it looks like. */}
+
+---
+
+## Design
+
+Diese Einstellungen steuern das visuelle Erscheinungsbild deines Agents im Chat-Widget.
+
+### Agent-Name
+
+Der Name, der im Widget-Header und überall dort angezeigt wird, wo sich der Agent vorstellt. Halte ihn kurz und passend zu deiner Marke - maximal 50 Zeichen.
+
+### Agent-Icon
+
+Ein kleines Bild, das im Widget-Header und neben jeder Agent-Nachricht erscheint. Akzeptierte Formate: PNG, JPG, GIF, WebP, SVG - max. **2 MB**. Wenn du nichts hochlädst, verwendet das Widget einen Standard-Avatar.
+
+### Primärfarbe
+
+Die Farbe für User-Nachrichten-Bubbles und den Senden-Button. Gib einen gültigen Hex-Wert ein (z. B. `#1A73E8`). Du kannst direkt tippen oder den Color Picker verwenden.
+
+Aktiviere **Auf Kopfzeile anwenden**, um diese Farbe auch als Hintergrund des Widget-Headers zu nutzen. Praktisch, wenn du einen durchgehend gebrandeten Look willst.
+
+{/* 📸 SCREENSHOT: Color picker popover open, alongside the live preview showing the primary color applied to both a user message bubble and the widget header (Apply to Header toggled on). Ideally use a vivid, non-default color so the effect is obvious. */}
+
+### Widget-Schaltflächenfarbe
+
+Die Hintergrundfarbe des schwebenden Buttons, der das Widget auf deiner Seite öffnet. Standard ist Schwarz (`#000000`) - pass ihn an dein Seitendesign an.
+
+### Widget-Schaltflächen-Icon
+
+Ein optionales eigenes Icon für den schwebenden Toggle-Button. Gleiche Format- und Grössenregeln wie beim Agent Icon.
+
+### "Powered by"-Branding ausblenden
+
+Entfernt den Klaro-AI-Hinweis aus dem Widget-Footer. Das ist ein **Pro-Plan**-Feature - auf einem tieferen Plan siehst du stattdessen einen Link zum Upgrade.
+
+{/* 📸 SCREENSHOT: Two-panel comparison - left: widget footer with "Powered by Klaro AI" visible (non-Pro); right: same footer with branding hidden (Pro). Crop tightly to the footer area. */}
+
+---
+
+## KI
+
+Diese Einstellungen steuern, wie dein Agent Antworten generiert.
+
+### Anweisungen (System Prompt)
+
+Das ist die wirkungsvollste Einstellung auf dieser Seite. Der System Prompt sagt dem Agent, wer er ist, was er tut und was er auf keinen Fall tun soll. Ein gut geschriebener Prompt verbessert die Antwortqualität massiv.
+
+Ein solider Prompt deckt typischerweise ab:
+
+- Die Rolle des Agents („Du bist ein Support-Assistent für Acme Inc.")
+- Ton und Persönlichkeit („Antworte knapp und freundlich.")
+- Harte Einschränkungen („Sprich nie über Konkurrenzprodukte. Empfiehl bei Abrechnungsfragen immer, den Support zu kontaktieren.")
+- Was der Agent tun soll, wenn er etwas nicht weiss
+
+{/* 📸 SCREENSHOT: The AI tab open, focused on the Instructions textarea with a realistic multi-line system prompt filled in. Show enough text to convey the field is substantial - scroll the textarea so the bottom is visible and the monospace font is legible. */}
+
+### KI-Modell
+
+Das Modell, das deinen Agent aktuell antreibt. Es wird von Klaro AI festgelegt und ist in der App nicht konfigurierbar - wir halten es für dich auf der besten verfügbaren Option für deinen Anwendungsfall.
+
+### Temperatur _(nur gpt-4-Modelle)_
+
+Steuert, wie kreativ oder vorhersagbar die Antworten ausfallen. Der Slider geht von **0** (sehr konsistent und konservativ) bis **1** (abwechslungsreicher und kreativer). Für Support-Anwendungen empfehlen wir **0.3–0.6** - zuverlässig genug für korrekte Antworten, flexibel genug, um natürlich zu klingen.
+
+Diese Einstellung erscheint nur, wenn dein Agent auf einem gpt-4-Modell läuft.
+
+### Formelle Anrede
+
+Aktiviere diesen Toggle, wenn der Agent formelle Sprache verwenden soll (z. B. „Sie" statt „du" im Deutschen). Nützlich in geschäftlichen Kontexten, in denen ein formeller Ton erwartet wird.
+
+---
+
+## Inhalt
+
+Die Inhalt-Einstellungen steuern die Texte, die der Agent in der Widget-Oberfläche anzeigt - nicht die KI-generierten Antworten, sondern die fest hinterlegten Strings wie Begrüssungen und Platzhalter.
+
+Jedes Feld hat separate Werte für **Englisch (EN)** und **Deutsch (DE)**. Wechsle die Sprache mit den EN/DE-Buttons neben jedem Feld. Zur Laufzeit liefert Klaro die Sprache, die zur Locale des Besuchers passt, und fällt auf Englisch zurück, wenn keine Übersetzung hinterlegt ist.
+
+{/* 📸 SCREENSHOT: Content tab showing one field (e.g. Welcome Message) with the DE toggle active and German text filled in, while EN is also filled in. The goal is to make the per-field language toggle immediately obvious to readers. */}
+
+### Begrüssungsnachricht
+
+Die erste Nachricht, die ein Besucher sieht, wenn er das Widget öffnet - noch bevor er etwas getippt hat. Mach sie einladend und sag klar, wobei der Agent helfen kann.
+
+_Beispiel:_ „Hallo 👋 Ich bin hier, um dir zu helfen. Frag mich alles zu unseren Produkten."
+
+### Fallback-Nachricht
+
+Wird angezeigt, wenn der Agent in seiner Wissensbasis keine passende Antwort findet. Setz eine Erwartung und gib dem Besucher einen nächsten Schritt - lass ihn nicht im Regen stehen.
+
+_Beispiel:_ „Darauf habe ich gerade leider keine gute Antwort. Kontaktiere unser Team direkt unter [support@acme.com](mailto:support@acme.com)."
+
+### Eingabe-Platzhalter
+
+Der Hinweistext im Chat-Eingabefeld, bevor der Besucher zu tippen beginnt. Halte ihn kurz und handlungsorientiert.
+
+_Beispiel:_ „Stell eine Frage…"
+
+{/* 📸 SCREENSHOT: Live widget preview panel showing the welcome message at the top and the input placeholder visible in the chat input. Crop to just the preview panel - this is the "what it looks like to the visitor" moment. */}
+
+---
+
+## Wie die Lokalisierung zur Laufzeit funktioniert
+
+Wenn ein Besucher dein Widget öffnet, ermittelt Klaro seine Locale anhand der URL (z. B. `/de/embed/...` vs. `/en/embed/...`) oder des `Accept-Language`-Headers im Browser. Dann liefert es:
+
+- Den **Inhalt in der passenden Sprache** aus `content_i18n` (EN oder DE)
+- **Englisch als Fallback**, wenn für die erkannte Sprache kein Inhalt hinterlegt ist
+
+Das heisst: Wenn deine Seite nur das deutsche Widget zeigt, du aber die DE-Felder nicht ausgefüllt hast, sehen Besucher die englischen Strings. Füll immer beide Sprachen aus, wenn du eine mehrsprachige Seite betreibst.
+
+---
+
+**Als Nächstes:** [Konfigurieren → Tools](./tools) — füge die Inhalte hinzu, aus denen dein Agent seine Antworten bezieht.

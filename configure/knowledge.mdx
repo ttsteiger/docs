@@ -1,0 +1,151 @@
+---
+title: "Wissensquellen"
+---
+
+Wissensquellen sind die Inhalte, aus denen dein Agent seine Antworten bezieht. Je relevanter und besser strukturiert deine Quellen sind, desto besser performt dein Agent. Du findest sie unter **Wissen** in der Sidebar.
+
+> **Zugriff:** Quellen hinzufügen, bearbeiten und löschen erfordert Editor- oder Owner-Rechte. Viewer können die Liste einsehen, aber keine Änderungen vornehmen.
+
+{/*  📸 SCREENSHOT: The Knowledge Sources page with a mix of source types listed (at least one website, one PDF, one text), each showing a different status badge. Shows the full page layout including the "Add source" button and usage counter in the top area.  */}
+
+---
+
+## Quellentypen
+
+Klaro unterstützt drei Wege, deinem Agent Inhalte zu liefern:
+
+| Typ | Ideal für |
+| --- | --- |
+| **Webseiten** | Produktseiten, Help Center, FAQs, Blogposts - alles, was per URL öffentlich erreichbar ist |
+| **PDFs** | Dokumentationen, Anleitungen, Whitepapers - alles, was als Datei vorliegt |
+| **Text** | Kurze Referenzinhalte, interne FAQs, Richtlinien - alles, was du direkt eintippen willst |
+
+Jeder Quellentyp wird separat indexiert, aber gemeinsam abgefragt, wenn ein Besucher eine Frage stellt.
+
+---
+
+## Status-Lifecycle
+
+Nachdem du eine Quelle hinzugefügt hast, verarbeitet Klaro sie im Hintergrund. Du kannst den Status in Echtzeit verfolgen - kein Refresh nötig.
+
+### Website
+
+```text
+pending → crawling → indexing → completed → failed
+```
+
+- **Ausstehend:** Quelle erstellt, wartet auf Verarbeitung
+- **Crawling:** Klaro ruft den Seiteninhalt von der URL ab
+- **Indexierung:** Inhalt wurde abgerufen und wird in Chunks aufgeteilt und embedded
+- **Abgeschlossen:** Quelle ist live und durchsuchbar
+- **Fehlgeschlagen:** Bei einem der Schritte ist etwas schiefgelaufen (ungültige URL, Seite nicht erreichbar usw.)
+
+### PDF
+
+```text
+pending → indexing → completed → failed
+```
+
+PDFs überspringen den Crawling-Schritt - nach dem Upload geht es direkt zur Indexierung.
+
+### Text
+
+```text
+indexing → completed → failed
+```
+
+Text-Quellen starten die Indexierung sofort nach dem Erstellen.
+
+{/*  📸 SCREENSHOT: Close-up of the status badges in the sources list - show all four meaningful states (pending/crawling, indexing, completed, failed) across different rows so the color/label treatment is clear.  */}
+
+> **Falls eine Quelle "Fehlgeschlagen" zeigt:** Die häufigsten Gründe sind eine URL, die ein Login erfordert, ein PDF, das zu gross oder zu lang ist, oder eine Text-Quelle, die das Wortlimit überschritten hat. Behebe das Problem und füge die Quelle neu hinzu (oder klick bei Websites auf Re-scrape).
+
+---
+
+## Knowledge Sources hinzufügen
+
+### Website
+
+Du hast drei Möglichkeiten, Website-Inhalte hinzuzufügen:
+
+**Einzeln** - eine URL einfügen und absenden. Ideal für eine bestimmte Seite, die du gezielt indexieren willst.
+
+**Mehrere** - bis zu **10 URLs** einfügen, eine pro Zeile. Praktisch, wenn du bereits eine Liste von Seiten parat hast.
+
+**Crawl** - gib eine Basis-URL ein, und Klaro mappt die Seite. Dir werden bis zu 30 gefundene Seiten angezeigt. Wähle die gewünschten aus (maximal 10 auf einmal) und füge sie in einem Rutsch hinzu. Das ist der effizienteste Weg, ein bestehendes Help Center oder eine Dokumentationsseite zu indexieren.
+
+{/*  📸 SCREENSHOT: The "Add website" dialog open on the Crawl tab, showing a mapped site with several checkboxes, some checked. Ideally show the "Select first 10" button and the submit button enabled.  */}
+
+URLs werden vor dem Speichern normalisiert - du kannst mit oder ohne `https://` und Trailing Slashes einfügen, Klaro kümmert sich drum.
+
+### PDF
+
+Klick auf **+ Dokument hinzufügen**, dann zieh deine Datei per Drag-and-Drop hinein oder klick zum Durchsuchen. Eine Datei pro Upload.
+
+Einschränkungen:
+
+- Format: nur PDF
+- Max. Grösse: **10 MB**
+- Max. Seiten: **50 Seiten**
+
+Der Titel wird automatisch aus dem Dateinamen übernommen (ohne `.pdf`). Du kannst ihn nach dem Upload nicht umbenennen - wenn du einen anderen Titel brauchst, lösch die Quelle und lade sie neu hoch.
+
+{/*  📸 SCREENSHOT: The PDF upload dialog with a file already dropped in (pre-submission), showing the filename, file size, and the upload/submit button in an active state.  */}
+
+### Text
+
+Klick auf **Textquelle hinzufügen**, gib einen Titel ein und füge deinen Inhalt ein. Der Titel muss pro Agent eindeutig sein - zwei Text-Quellen mit demselben Titel anzulegen, schlägt fehl.
+
+Einschränkungen:
+
+- Max: **10'000 Wörter**
+- Ein Live-Wortzähler zeigt deinen aktuellen Stand beim Tippen an; der Submit-Button wird deaktiviert, sobald du das Limit überschreitest
+
+Text-Quellen eignen sich besonders für internes Wissen, das nirgendwo veröffentlicht ist - z. B. Eskalationsabläufe, Preisstufen oder Produkt-Positioning-Notizen, die der Agent kennen soll, die aber nicht auf deiner Website stehen.
+
+{/*  📸 SCREENSHOT: The "Add text source" dialog with a title and a body of text filled in, showing the live word count near the limit (e.g. "8,432 / 10,000 words").  */}
+
+---
+
+## Webseiten erneut crawlen
+
+Websites können manuell re-scraped werden, um aktualisierte Inhalte abzuholen. Such die Quelle in der Liste und klick auf **Erneut crawlen**.
+
+Gut zu wissen:
+
+- Ein Re-Scrape zählt gegen dein **monatliches Website-Scraping-Limit** (gleich wie das Hinzufügen einer neuen Website)
+- Du kannst nicht re-scrapen, solange eine Quelle gerade gecrawlt oder indexiert wird - der Button ist während der Verarbeitung deaktiviert
+- Nach einem abgeschlossenen Re-Scrape wird der alte Inhalt vollständig ersetzt - nicht zusammengeführt
+
+PDFs und Text-Quellen haben keine Re-Index-Option. Wenn sich der Inhalt ändert, lösch die Quelle und füge sie neu hinzu.
+
+---
+
+## Quellen löschen
+
+Du kannst jede Quelle aus der Liste löschen. Löschen ist endgültig und sofort wirksam - die Quelle wird aus dem Index entfernt, und dein Agent verwendet sie nicht mehr für Antworten.
+
+---
+
+## Plan-Limiten
+
+Zwei Limits gelten für Wissensquellen, beide auf Workspace-Ebene:
+
+**Gesamtzahl Wissensquellen** - die kombinierte Anzahl aller Quellentypen über alle deine Agents hinweg. Wenn du das Limit erreichst, musst du bestehende Quellen löschen oder deinen Plan upgraden.
+
+**Website-Scrapes pro Monat** - zählt sowohl neu hinzugefügte Websites als auch Re-Scrapes bestehender Quellen. Setzt sich zu Beginn jedes Abrechnungsmonats zurück.
+
+| Plan | Max. Wissensquellen | Max. Website-Scrapes/Monat |
+| --- | --- | --- |
+| Free | 5 | 5 |
+| Starter | 25 | 25 |
+| Builder | 100 | 150 |
+| Pro | 400 | 500 |
+
+Du siehst deinen aktuellen Verbrauch direkt auf den Wissens-Seite. Wenn du mitten im Workflow ein Limit erreichst, erscheint eine Inline-Fehlermeldung mit deinen aktuellen Zählern - geh zu **Einstellungen → Abrechnung**, um deinen Plan zu prüfen.
+
+{/*  📸 SCREENSHOT: The usage counter on the Knowledge Sources page showing something like "18 / 25 sources" and "12 / 25 websites scraped this month" - close enough to the limit that it feels meaningful.  */}
+
+---
+
+**Als Nächstes:** [Konfigurieren → Personalisieren](./customize) - aktiviere die Eskalation an Menschen und Lead-Erfassung.

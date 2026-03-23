@@ -13,16 +13,16 @@
         "language": "de",
         "tabs": [
           {
-            "tab": "Help Center",
+            "tab": "Hilfecenter",
             "groups": [
               {
-                "group": "Get started",
+                "group": "Erste Schritte",
                 "pages": [
                   "../get-started/quickstart"
                 ]
               },
               {
-                "group": "Configure the Agent",
+                "group": "Agent konfigurieren",
                 "pages": [
                   "../configure/customize",
                   "../configure/knowledge",
@@ -30,13 +30,13 @@
                 ]
               },
               {
-                "group": "Operate Daily",
+                "group": "Täglicher Betrieb",
                 "pages": [
                   "../operate/inbox"
                 ]
               },
               {
-                "group": "Widget Integration",
+                "group": "Widget-Integration",
                 "pages": [
                   "../integration/widget-playground"
                 ]
