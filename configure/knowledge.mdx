@@ -1,32 +1,32 @@
 ---
-title: "Knowledge Sources"
+title: "Wissensquellen"
 ---
 
-Knowledge sources are the content your agent draws answers from. The more relevant and well-structured your sources are, the better your agent performs. You'll find them under **Configure → Knowledge Sources** in the sidebar.
+Wissensquellen sind die Inhalte, aus denen dein Agent seine Antworten bezieht. Je relevanter und besser strukturiert deine Quellen sind, desto besser performt dein Agent. Du findest sie unter **Wissen** in der Sidebar.
 
-> **Access:** Adding, editing, and deleting sources requires Editor or Owner access. Viewers can browse the list but can't make changes.
+> **Zugriff:** Quellen hinzufügen, bearbeiten und löschen erfordert Editor- oder Owner-Rechte. Viewer können die Liste einsehen, aber keine Änderungen vornehmen.
 
 {/*  📸 SCREENSHOT: The Knowledge Sources page with a mix of source types listed (at least one website, one PDF, one text), each showing a different status badge. Shows the full page layout including the "Add source" button and usage counter in the top area.  */}
 
 ---
 
-## Source types
+## Quellentypen
 
-Klaro supports three ways to feed content to your agent:
+Klaro unterstützt drei Wege, deinem Agent Inhalte zu liefern:
 
-| Type | Best for |
+| Typ | Ideal für |
 | --- | --- |
-| **Website** | Product pages, help centers, FAQs, blog posts — anything publicly accessible by URL |
-| **PDF** | Documentation, manuals, whitepapers, anything that lives in a file |
-| **Text** | Short reference content, internal FAQs, policies — anything you want to paste in directly |
+| **Webseiten** | Produktseiten, Help Center, FAQs, Blogposts - alles, was per URL öffentlich erreichbar ist |
+| **PDFs** | Dokumentationen, Anleitungen, Whitepapers - alles, was als Datei vorliegt |
+| **Text** | Kurze Referenzinhalte, interne FAQs, Richtlinien - alles, was du direkt eintippen willst |
 
-Each source type is indexed separately but queried together when a visitor asks a question.
+Jeder Quellentyp wird separat indexiert, aber gemeinsam abgefragt, wenn ein Besucher eine Frage stellt.
 
 ---
 
-## Status lifecycle
+## Status-Lifecycle
 
-After you add a source, Klaro processes it in the background. You can watch the status update in real time — no need to refresh.
+Nachdem du eine Quelle hinzugefügt hast, verarbeitet Klaro sie im Hintergrund. Du kannst den Status in Echtzeit verfolgen - kein Refresh nötig.
 
 ### Website
 
@@ -34,11 +34,11 @@ After you add a source, Klaro processes it in the background. You can watch the 
 pending → crawling → indexing → completed → failed
 ```
 
-- **Pending:** source created, waiting to be picked up
-- **Crawling:** Klaro is fetching the page content from the URL
-- **Indexing:** content has been retrieved and is being split into chunks and embedded
-- **Completed:** source is live and searchable
-- **Failed:** something went wrong at one of the steps (bad URL, unreachable page, etc.)
+- **Ausstehend:** Quelle erstellt, wartet auf Verarbeitung
+- **Crawling:** Klaro ruft den Seiteninhalt von der URL ab
+- **Indexierung:** Inhalt wurde abgerufen und wird in Chunks aufgeteilt und embedded
+- **Abgeschlossen:** Quelle ist live und durchsuchbar
+- **Fehlgeschlagen:** Bei einem der Schritte ist etwas schiefgelaufen (ungültige URL, Seite nicht erreichbar usw.)
 
 ### PDF
 
@@ -46,7 +46,7 @@ pending → crawling → indexing → completed → failed
 pending → indexing → completed → failed
 ```
 
-PDFs skip the crawling step — once uploaded, they go straight to indexing.
+PDFs überspringen den Crawling-Schritt - nach dem Upload geht es direkt zur Indexierung.
 
 ### Text
 
@@ -54,98 +54,98 @@ PDFs skip the crawling step — once uploaded, they go straight to indexing.
 indexing → completed → failed
 ```
 
-Text sources start indexing immediately on creation.
+Text-Quellen starten die Indexierung sofort nach dem Erstellen.
 
-{/*  📸 SCREENSHOT: Close-up of the status badges in the sources list — show all four meaningful states (pending/crawling, indexing, completed, failed) across different rows so the color/label treatment is clear.  */}
+{/*  📸 SCREENSHOT: Close-up of the status badges in the sources list - show all four meaningful states (pending/crawling, indexing, completed, failed) across different rows so the color/label treatment is clear.  */}
 
-> **If a source shows "failed":** the most common reasons are a URL that requires login, a PDF that's too large or too long, or a text source that exceeded the word limit. Fix the issue and re-add the source (or re-scrape for websites).
+> **Falls eine Quelle "Fehlgeschlagen" zeigt:** Die häufigsten Gründe sind eine URL, die ein Login erfordert, ein PDF, das zu gross oder zu lang ist, oder eine Text-Quelle, die das Wortlimit überschritten hat. Behebe das Problem und füge die Quelle neu hinzu (oder klick bei Websites auf Re-scrape).
 
 ---
 
-## Adding knowledge sources
+## Knowledge Sources hinzufügen
 
 ### Website
 
-You have three ways to add website content:
+Du hast drei Möglichkeiten, Website-Inhalte hinzuzufügen:
 
-**Single** — paste one URL and submit. Good for a specific page you know you want indexed.
+**Einzeln** - eine URL einfügen und absenden. Ideal für eine bestimmte Seite, die du gezielt indexieren willst.
 
-**Multiple** — paste up to **10 URLs**, one per line. Use this when you have a list of pages ready to go.
+**Mehrere** - bis zu **10 URLs** einfügen, eine pro Zeile. Praktisch, wenn du bereits eine Liste von Seiten parat hast.
 
-**Crawl** — enter a base URL and Klaro maps the site, showing you up to 30 discovered pages. Pick the ones you want (up to 10 at a time) and add them in one go. This is the most efficient way to index an existing help center or documentation site.
+**Crawl** - gib eine Basis-URL ein, und Klaro mappt die Seite. Dir werden bis zu 30 gefundene Seiten angezeigt. Wähle die gewünschten aus (maximal 10 auf einmal) und füge sie in einem Rutsch hinzu. Das ist der effizienteste Weg, ein bestehendes Help Center oder eine Dokumentationsseite zu indexieren.
 
 {/*  📸 SCREENSHOT: The "Add website" dialog open on the Crawl tab, showing a mapped site with several checkboxes, some checked. Ideally show the "Select first 10" button and the submit button enabled.  */}
 
-URLs are normalized before saving — you can paste with or without `https://` and trailing slashes, Klaro handles it.
+URLs werden vor dem Speichern normalisiert - du kannst mit oder ohne `https://` und Trailing Slashes einfügen, Klaro kümmert sich drum.
 
 ### PDF
 
-Click **Add source → PDF**, then drag and drop your file or click to browse. One file per upload.
+Klick auf **+ Dokument hinzufügen**, dann zieh deine Datei per Drag-and-Drop hinein oder klick zum Durchsuchen. Eine Datei pro Upload.
 
-Constraints:
+Einschränkungen:
 
-- Format: PDF only
-- Max size: **10 MB**
-- Max pages: **50 pages**
+- Format: nur PDF
+- Max. Grösse: **10 MB**
+- Max. Seiten: **50 Seiten**
 
-The title defaults to the filename (without `.pdf`). You can't rename it after upload — if you need a different title, delete and re-upload.
+Der Titel wird automatisch aus dem Dateinamen übernommen (ohne `.pdf`). Du kannst ihn nach dem Upload nicht umbenennen - wenn du einen anderen Titel brauchst, lösch die Quelle und lade sie neu hoch.
 
 {/*  📸 SCREENSHOT: The PDF upload dialog with a file already dropped in (pre-submission), showing the filename, file size, and the upload/submit button in an active state.  */}
 
 ### Text
 
-Click **Add source → Text**, enter a title and paste your content. The title must be unique per agent — adding two text sources with the same title will fail.
+Klick auf **Textquelle hinzufügen**, gib einen Titel ein und füge deinen Inhalt ein. Der Titel muss pro Agent eindeutig sein - zwei Text-Quellen mit demselben Titel anzulegen, schlägt fehl.
 
-Constraints:
+Einschränkungen:
 
-- Max: **10,000 words**
-- A live word counter shows your current count as you type; the submit button disables when you go over
+- Max: **10'000 Wörter**
+- Ein Live-Wortzähler zeigt deinen aktuellen Stand beim Tippen an; der Submit-Button wird deaktiviert, sobald du das Limit überschreitest
 
-Text sources are useful for internal knowledge that isn't published anywhere — things like escalation procedures, pricing tiers, or product positioning notes that you want the agent to know but don't live on your website.
+Text-Quellen eignen sich besonders für internes Wissen, das nirgendwo veröffentlicht ist - z. B. Eskalationsabläufe, Preisstufen oder Produkt-Positioning-Notizen, die der Agent kennen soll, die aber nicht auf deiner Website stehen.
 
 {/*  📸 SCREENSHOT: The "Add text source" dialog with a title and a body of text filled in, showing the live word count near the limit (e.g. "8,432 / 10,000 words").  */}
 
 ---
 
-## Re-scraping websites
+## Webseiten erneut crawlen
 
-Websites can be manually re-scraped to pick up updated content. Find the source in the list and click **Re-scrape**.
+Websites können manuell re-scraped werden, um aktualisierte Inhalte abzuholen. Such die Quelle in der Liste und klick auf **Erneut crawlen**.
 
-A few things to know:
+Gut zu wissen:
 
-- Re-scraping counts against your **monthly website scraping limit** (same as adding a new website)
-- You can't re-scrape while a source is currently being crawled or indexed — the button is disabled during processing
-- When a re-scrape completes, the old content is fully replaced — not merged
+- Ein Re-Scrape zählt gegen dein **monatliches Website-Scraping-Limit** (gleich wie das Hinzufügen einer neuen Website)
+- Du kannst nicht re-scrapen, solange eine Quelle gerade gecrawlt oder indexiert wird - der Button ist während der Verarbeitung deaktiviert
+- Nach einem abgeschlossenen Re-Scrape wird der alte Inhalt vollständig ersetzt - nicht zusammengeführt
 
-PDFs and text sources don't have a re-index option. If the content changes, delete the source and re-add it.
-
----
-
-## Deleting sources
-
-You can delete any source from the list. Deletion is permanent and immediate — the source is removed from the index and your agent will no longer use it for answers. Deleted website sources do **not** count against your monthly scraping limit.
+PDFs und Text-Quellen haben keine Re-Index-Option. Wenn sich der Inhalt ändert, lösch die Quelle und füge sie neu hinzu.
 
 ---
 
-## Plan limits
+## Quellen löschen
 
-Two limits apply to knowledge sources, and both are scoped to your workspace:
+Du kannst jede Quelle aus der Liste löschen. Löschen ist endgültig und sofort wirksam - die Quelle wird aus dem Index entfernt, und dein Agent verwendet sie nicht mehr für Antworten.
 
-**Total knowledge sources** — the combined count of all source types across all your agents. Once you hit the limit, you'll need to delete existing sources or upgrade your plan to add more.
+---
 
-**Website scrapes per month** — counts both new websites added and re-scrapes of existing ones. Resets at the start of each billing month.
+## Plan-Limiten
 
-| Plan | Max knowledge sources | Max website scrapes/month |
+Zwei Limits gelten für Wissensquellen, beide auf Workspace-Ebene:
+
+**Gesamtzahl Wissensquellen** - die kombinierte Anzahl aller Quellentypen über alle deine Agents hinweg. Wenn du das Limit erreichst, musst du bestehende Quellen löschen oder deinen Plan upgraden.
+
+**Website-Scrapes pro Monat** - zählt sowohl neu hinzugefügte Websites als auch Re-Scrapes bestehender Quellen. Setzt sich zu Beginn jedes Abrechnungsmonats zurück.
+
+| Plan | Max. Wissensquellen | Max. Website-Scrapes/Monat |
 | --- | --- | --- |
 | Free | 5 | 5 |
 | Starter | 25 | 25 |
 | Builder | 100 | 150 |
 | Pro | 400 | 500 |
 
-You can see your current usage directly on the Knowledge Sources page. If you hit a limit mid-workflow, you'll see an inline error message with your current counts — head to **Settings → Billing** to review your plan.
+Du siehst deinen aktuellen Verbrauch direkt auf den Wissens-Seite. Wenn du mitten im Workflow ein Limit erreichst, erscheint eine Inline-Fehlermeldung mit deinen aktuellen Zählern - geh zu **Einstellungen → Abrechnung**, um deinen Plan zu prüfen.
 
-{/*  📸 SCREENSHOT: The usage counter on the Knowledge Sources page showing something like "18 / 25 sources" and "12 / 25 websites scraped this month" — close enough to the limit that it feels meaningful.  */}
+{/*  📸 SCREENSHOT: The usage counter on the Knowledge Sources page showing something like "18 / 25 sources" and "12 / 25 websites scraped this month" - close enough to the limit that it feels meaningful.  */}
 
 ---
 
-**Next up:** [Configure → Tools](./tools) — enable human escalation and lead capture.
+**Als Nächstes:** [Konfigurieren → Personalisieren](./customize) - aktiviere die Eskalation an Menschen und Lead-Erfassung.

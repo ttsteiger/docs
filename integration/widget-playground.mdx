@@ -1,113 +1,113 @@
 ---
-title: 'Widget Playground'
+title: "Widget & Playground"
 ---
 
-This page covers how to embed your agent on your website, how to test it before going live, and how to share a standalone chat link.
+Diese Seite erklärt, wie du deinen Agent auf deiner Website einbettest, wie du ihn vor dem Go-Live testest, und wie du einen eigenständigen Chat-Link teilst.
 
---- 
+---
 
-## Getting your embed code
+## Embed-Code holen
 
-Your embed code lives on the **Dashboard**. Click the **Share Agent** button (top right) — it opens a dialog with two tabs: **Embed Widget** and **Public Link**.
+Dein Embed-Code befindet sich auf dem **Dashboard**. Klick auf den **Agent teilen**-Button (oben rechts) - es öffnet sich ein Dialog mit zwei Tabs: **Widget einbetten** und **Öffentlicher Link**.
 
-> **Owner only:** The Share Agent button is only visible to workspace owners.
+> **Nur für Owner:** Der Agent-Teilen-Button ist nur für Workspace Owner sichtbar.
 
 {/* 📸 SCREENSHOT: The Share Agent dialog open on the "Embed Widget" tab, showing the code snippet, position/language selectors, the copy button, and the CSP hint below it. */}
 
 ---
 
-## Embedding the widget
+## Widget einbetten
 
-Paste the script tag into your site's HTML, just before the closing `</body>` tag. A minimal embed looks like this:
+Füge das Script-Tag in den HTML-Code deiner Seite ein, direkt vor dem schliessenden `</body>`-Tag. Ein minimales Embed sieht so aus:
 
 ```html
 <script 
-  src="https://app.klaro.ai/widget.min.js" 
-  data-agent-id="your-agent-id-here"
+  src="https://www.klaroai.ch/widget.min.js" 
+  data-agent-id="[agent-id]"
 ></script>
 ```
 
-`data-agent-id` is the only required attribute. Your agent ID is the UUID shown in the Share dialog (and visible in the URL when you're inside your agent in the app).
+`data-agent-id` ist das einzige Pflichtattribut. Deine Agent-ID ist die UUID, die im Share-Dialog angezeigt wird (und in der URL sichtbar ist, wenn du dich in deinem Agent in der App befindest).
 
-The script loads asynchronously and injects a floating chat button into your page. It won't block page rendering.
+Das Script lädt asynchron und injiziert einen schwebenden Chat-Button auf deiner Seite. Es blockiert das Seiten-Rendering nicht.
 
-### Optional attributes
+### Optionale Attribute
 
-| Attribute | Values | Default | What it does |
-|---|---|---|---|
-| `data-position` | `bottom-right`, `bottom-left`, `top-right`, `top-left` | `bottom-right` | Sets where the toggle button appears on screen |
-| `data-lang` | `en`, `de` | Auto-detect | Fixes the widget language. If omitted, Klaro uses the visitor's browser language and falls back to English |
+| Attribut | Werte | Standard | Was es tut |
+| --- | --- | --- | --- |
+| `data-position` | `bottom-right`, `bottom-left`, `top-right`, `top-left` | `bottom-right` | Bestimmt, wo der Toggle-Button auf dem Bildschirm erscheint |
+| `data-lang` | `en`, `de` | Auto-Erkennung | Fixiert die Widget-Sprache. Wenn weggelassen, nutzt Klaro die Browsersprache des Besuchers und fällt auf Englisch zurück |
 
-The Share dialog lets you pick position and language visually before copying — the snippet updates automatically.
+Im Share-Dialog kannst du Position und Sprache visuell auswählen, bevor du kopierst - der Snippet aktualisiert sich automatisch.
 
 ### JavaScript API
 
-Once loaded, the widget exposes a small API on `window.KlaroAIWidget` if you need programmatic control:
+Nach dem Laden stellt das Widget eine kleine API unter `window.KlaroAIWidget` bereit, falls du programmatische Kontrolle brauchst:
 
 ```js
-window.KlaroAIWidget.open()    // open the chat
-window.KlaroAIWidget.close()   // close the chat
-window.KlaroAIWidget.toggle()  // toggle open/closed
-window.KlaroAIWidget.destroy() // remove the widget from the page
+window.KlaroAIWidget.open()    // Chat öffnen
+window.KlaroAIWidget.close()   // Chat schliessen
+window.KlaroAIWidget.toggle()  // Öffnen/Schliessen umschalten
+window.KlaroAIWidget.destroy() // Widget von der Seite entfernen
 ```
 
 ---
 
 ## CSP (Content Security Policy)
 
-If your site uses a Content Security Policy, you'll need to add Klaro's domain to two directives so the script can load and the chat iframe can render:
+Wenn deine Seite eine Content Security Policy verwendet, musst du Klaros Domain in zwei Direktiven aufnehmen, damit das Script laden und der Chat-Iframe rendern kann:
 
-```
+```text
 script-src  https://www.klaroai.ch;
 frame-src  https://www.klaroai.ch;
 ```
 
-Add these to your existing CSP — don't replace what's already there. The Share dialog shows the exact values to copy.
+Füge diese zu deiner bestehenden CSP hinzu - ersetze nicht, was bereits dort steht. Der Share-Dialog zeigt die exakten Werte zum Kopieren an.
 
 ---
 
-## The Playground
+## Der Playground
 
-The **Playground** is a built-in test environment inside the app. Find it in the sidebar under **Playground**.
+Der **Playground** ist eine integrierte Testumgebung innerhalb der App. Du findest ihn in der Sidebar unter **Playground**.
 
-It runs the same chat interface your visitors see, but inside your Klaro dashboard — no embed required. Use it to:
+Er zeigt dasselbe Chat-Interface, das deine Besucher sehen — aber innerhalb deines Klaro-Dashboards, ohne Embed. Nutze ihn, um:
 
-- Test your agent's responses after adding new knowledge sources
-- Check how the system prompt changes behavior
-- Verify tool behavior (escalation, lead capture) before enabling them on your live site
+- Die Antworten deines Agents nach dem Hinzufügen neuer Knowledge Sources zu testen
+- Zu prüfen, wie der System Prompt das Verhalten beeinflusst
+- Tool-Verhalten (Eskalation, Lead Capture) zu verifizieren, bevor du sie auf deiner Live-Seite aktivierst
 
 {/* 📸 SCREENSHOT: The Playground page — showing the chat interface in the app with a test conversation, the restart button visible in the header. */}
 
-### Playground conversations in the inbox
+### Playground-Konversationen in der Inbox
 
-Every conversation you have in the Playground shows up in your Inbox — just like real visitor conversations. They're marked with a small flask icon (🧪) in the conversation list so you can tell your own tests apart from real traffic.
+Jede Konversation aus dem Playground erscheint in deiner Inbox - genau wie echte Besucher-Konversationen. Sie sind mit einem kleinen Kolben-Icon (🧪) in der Konversationsliste markiert, damit du deine eigenen Tests von echtem Traffic unterscheiden kannst.
 
 {/* 📸 SCREENSHOT: The inbox conversation list showing a mix of regular and playground conversations, with the flask icon clearly visible next to the playground ones. */}
 
-You can close or delete playground conversations from the inbox the same way as any other conversation.
+Du kannst Playground-Konversationen in der Inbox genauso schliessen oder löschen wie jede andere Konversation.
 
 ---
 
-## Public chat link
+## Öffentlicher Chat-Link
 
-The **Public Link** tab in the Share dialog gives you a standalone URL that opens your agent in a full-page chat — no embed needed. It looks like:
+Der **Public Link**-Tab im Share-Dialog gibt dir eine eigenständige URL, die deinen Agent in einem Vollbild-Chat öffnet - kein Embed nötig. Sie sieht so aus:
 
-```
+```text
 https://www.klaroai.ch/public/[agent-id]
 ```
 
-Anyone with this link can chat with your agent. It's useful for:
+Jeder mit diesem Link kann mit deinem Agent chatten. Praktisch für:
 
-- Sharing the agent in an email or support ticket
-- Internal testing without embedding on a page
-- Running a quick demo with a prospect
+- Den Agent per E-Mail oder Support-Ticket teilen
+- Internes Testen, ohne auf einer Seite einzubetten
+- Eine schnelle Demo mit einem Interessenten
 
-The public page uses the same language fallback logic as the widget — visitor's browser language, defaulting to English if the language isn't supported.
+Die öffentliche Seite nutzt dieselbe Sprach-Fallback-Logik wie das Widget - Browsersprache des Besuchers, mit Englisch als Standard, wenn die Sprache nicht unterstützt wird.
 
 {/* 📸 SCREENSHOT: The Share Agent dialog on the "Public Link" tab, showing the URL, the copy button, and the hint text ("Anyone with this link can chat with your AI assistant"). */}
 
-> The public chat page and the embedded widget are separate surfaces but run the same agent. Conversations from both appear in your inbox — public link conversations show as regular widget conversations (no special badge).
+> Die öffentliche Chat-Seite und das eingebettete Widget sind separate Oberflächen, betreiben aber denselben Agent. Konversationen von beiden erscheinen in deiner Inbox - Public-Link-Konversationen werden wie reguläre Widget-Konversationen angezeigt (kein spezielles Badge).
 
 ---
 
-**You're all set.** At this point you've covered everything in this guide — from setting up your agent to embedding it and managing conversations. If something isn't covered here, [reach out to our team](mailto:titian@klaroai.ch).
+**Geschafft.** Damit hast du alles in diesem Guide abgedeckt — vom Einrichten deines Agents über das Einbetten bis hin zum Verwalten von Konversationen. Falls etwas nicht abgedeckt ist, [melde dich bei unserem Team](mailto:titian@klaroai.ch).
