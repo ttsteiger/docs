@@ -42,12 +42,6 @@
                 ]
               }
             ]
-          },
-          {
-            "tab": "Changelog",
-            "pages": [
-              "../changelog/coming-soon"
-            ]
           }
         ]
       },
@@ -83,12 +77,6 @@
                   "../en/integration/widget-playground"
                 ]
               }
-            ]
-          },
-          {
-            "tab": "Changelog",
-            "pages": [
-              "../en/changelog/coming-soon"
             ]
           }
         ]
