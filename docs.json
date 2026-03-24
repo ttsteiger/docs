@@ -8,79 +8,8 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "languages": [
-      {
-        "language": "de",
-        "tabs": [
-          {
-            "tab": "Hilfecenter",
-            "groups": [
-              {
-                "group": "Erste Schritte",
-                "pages": [
-                  "../get-started/quickstart"
-                ]
-              },
-              {
-                "group": "Agent konfigurieren",
-                "pages": [
-                  "../configure/customize",
-                  "../configure/knowledge",
-                  "../configure/tools"
-                ]
-              },
-              {
-                "group": "Täglicher Betrieb",
-                "pages": [
-                  "../operate/inbox"
-                ]
-              },
-              {
-                "group": "Widget-Integration",
-                "pages": [
-                  "../integration/widget-playground"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "language": "en",
-        "tabs": [
-          {
-            "tab": "Help Center",
-            "groups": [
-              {
-                "group": "Get started",
-                "pages": [
-                  "../en/get-started/quickstart"
-                ]
-              },
-              {
-                "group": "Configure the Agent",
-                "pages": [
-                  "../en/configure/customize",
-                  "../en/configure/knowledge",
-                  "../en/configure/tools"
-                ]
-              },
-              {
-                "group": "Operate Daily",
-                "pages": [
-                  "../en/operate/inbox"
-                ]
-              },
-              {
-                "group": "Widget Integration",
-                "pages": [
-                  "../en/integration/widget-playground"
-                ]
-              }
-            ]
-          }
-        ]
-      }
+    "pages": [
+      "settings"
     ]
   },
   "logo": "/logo/light.svg",
