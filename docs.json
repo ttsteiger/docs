@@ -8,7 +8,9 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "groups": []
+    "pages": [
+      "settings"
+    ]
   },
   "logo": "/logo/light.svg",
   "navbar": {
