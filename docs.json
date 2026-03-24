@@ -119,5 +119,6 @@
   },
   "seo": {
     "indexing": "all"
-  }
+  },
+  "logo": "/images/logo-horizontal.svg"
 }
