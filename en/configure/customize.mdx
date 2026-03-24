@@ -1,7 +1,6 @@
 ---
-title: 'Customize'
-sidebarTitle: 'Customize'
-
+title: "Customize"
+sidebarTitle: "Customize"
 ---
 
 The Customize page is where you control how your agent looks, thinks, and talks. You'll find it under **Customize** in the sidebar. It has three tabs: **Style**, **AI**, and **Content**.
@@ -10,7 +9,9 @@ Changes don't save automatically - a floating save bar appears when you've made 
 
 > **Access:** You need Editor or Owner access to customize an agent. Viewers can't open this page.
 
-{/* 📸 SCREENSHOT: Full Customize page on the Style tab, showing the live preview panel on the right and the form fields on the left. Capture the floating save bar at the bottom in an "unsaved changes" state so readers can see what it looks like. */}
+<Frame>
+  ![Customize En](/images/customize-en.png)
+</Frame>
 
 ---
 
@@ -32,8 +33,6 @@ The color used for user message bubbles and the send button. Enter any valid hex
 
 Toggle **Apply to Header** to also use this color as the widget header background. Useful if you want a branded look end-to-end.
 
-{/* 📸 SCREENSHOT: Color picker popover open, alongside the live preview showing the primary color applied to both a user message bubble and the widget header (Apply to Header toggled on). Ideally use a vivid, non-default color so the effect is obvious. */}
-
 ### Chat Widget Toggle Color
 
 The background color of the floating button that opens the widget on your site. Defaults to black (`#000000`) - change it to match your site's design.
@@ -45,8 +44,6 @@ An optional custom icon for the floating toggle button. Same format/size rules a
 ### Hide "Powered by" Branding
 
 Removes the Klaro AI credit from the widget footer. This is a **Pro plan** feature - if you're on a lower tier, you'll see a link to upgrade.
-
-{/* 📸 SCREENSHOT: Two-panel comparison — left: widget footer with "Powered by Klaro AI" visible (non-Pro); right: same footer with branding hidden (Pro). Crop tightly to the footer area. */}
 
 ---
 
@@ -64,8 +61,6 @@ A solid prompt typically covers:
 - Tone and personality ("Respond concisely and in a friendly tone.")
 - Hard constraints ("Never discuss competitor products. Always recommend contacting support for billing questions.")
 - What to do when the agent doesn't know something
-
-{/* 📸 SCREENSHOT: The AI tab open, focused on the Instructions textarea with a realistic multi-line system prompt filled in. Show enough text to convey the field is substantial — scroll the textarea so the bottom is visible and the monospace font is legible. */}
 
 ### AI Model
 
@@ -89,8 +84,6 @@ Content settings control the text the agent shows in the widget UI itself - not 
 
 Each field has separate values for **English (EN)** and **German (DE)**. Toggle between languages using the EN / DE buttons next to each field. At runtime, Klaro serves whichever language matches the visitor's locale and falls back to English if a translation isn't set.
 
-{/* 📸 SCREENSHOT: Content tab showing one field (e.g. Welcome Message) with the DE toggle active and German text filled in, while EN is also filled in. The goal is to make the per-field language toggle immediately obvious to readers. */}
-
 ### Welcome Message
 
 The first message a visitor sees when they open the widget, before they've typed anything. Make it warm and clear about what the agent can help with.
@@ -108,8 +101,6 @@ _Example:_ "I don't have a good answer for that right now. Feel free to reach ou
 The hint text shown inside the chat input field before the visitor starts typing. Keep it short and action-oriented.
 
 _Example:_ "Ask a question…"
-
-{/* 📸 SCREENSHOT: Live widget preview panel showing the welcome message at the top and the input placeholder visible in the chat input. Crop to just the preview panel — this is the "what it looks like to the visitor" moment. */}
 
 ---
 
